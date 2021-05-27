@@ -43,6 +43,14 @@
 
 > ルーターに設定されたRIPテーブル一覧が表示される
 
+### VLANの設定を表示
+
+- 参考サイト: https://www.allied-telesis.co.jp/support/list/router/arx640s/comref_/docs/show_vlan-switch@010USEREXEC.html
+
+1. Router# `show vlan-switch`
+
+> ルーターのスイッチポートに設定されたVLANが表示される
+
 
 ## ポートにIPアドレスを設定
 - 参考サイト: https://beginners-network.com/cisco-catalyst-command/ip-address.html
@@ -87,3 +95,25 @@
 4. Router(config-router)# `exit`
 
 > 削除する場合は、`no network 192.168.2.0` と入力する
+
+## VLAN設定
+
+### VLANの作成
+- 参考サイト: https://beginners-network.com/cisco-catalyst-command/vlan.html
+
+- vlan10を作る
+
+1. Router# `vlan database`
+2. Router(vlan)# `vlan 10`
+
+> VLAN設定を削除する場合は、 `delete vlan.dat` と入力する(再起動が必要)
+
+### VLANの適応
+- 参考サイト: https://beginners-network.com/catalyst_config_vlan.html
+
+- ポートが"fastEthernet 3"で、"VLAN10"を設定する場合
+
+1. Router(config)# `interface fastethernet 3`
+2. Router(config-if)# `switchport access vlan 10`
+
+> ちゃんと適応されているか `show vlan-switch` で確認しよう
