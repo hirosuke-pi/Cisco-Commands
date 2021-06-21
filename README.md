@@ -117,3 +117,12 @@
 2. Router(config-if)# `switchport access vlan 10`
 
 > ちゃんと適応されているか `show vlan-switch` で確認しよう
+
+### トランクリンクの設定
+
+- ポート"fastEthernet 0"に設定する場合
+
+1. Router(config)# `interface fastEthernet 0`
+2. Router(config-if)# `swichport mode trunk`
+
+> かんたんですね！
